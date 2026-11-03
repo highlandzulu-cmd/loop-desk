@@ -1,0 +1,20 @@
+[package]
+name = "loop-desk-term"
+version = "0.1.0"
+edition = "2021"
+description = "Embeddable terminal panel (portable-pty + vt100) for egui"
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "term_demo"
+path = "src/bin/term_demo.rs"
+
+[dependencies]
+eframe = "0.31"
+egui = "0.31"
+portable-pty = "0.8"
+vt100 = "0.15"
+anyhow = "1"
+parking_lot = "0.12"

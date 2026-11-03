@@ -1,0 +1,30 @@
+[package]
+name = "loop-desk"
+version = "0.1.0"
+edition = "2021"
+description = "A desktop app for the Loop coding agent (egui)"
+
+[workspace]
+members = [".", "loop-desk-term"]
+
+[dependencies]
+libc = "0.2"
+# Loop's engine: upstream soketlabs/loop 0.5.0, pinned to a commit.
+loop-app-core = { git = "https://github.com/soketlabs/loop.git", rev = "70301869ad108c4d03a6cd709f0d63eeff01955f" }
+loop-agent = { git = "https://github.com/soketlabs/loop.git", rev = "70301869ad108c4d03a6cd709f0d63eeff01955f", features = ["mcp", "sqlite"] }
+loop-ai = { git = "https://github.com/soketlabs/loop.git", rev = "70301869ad108c4d03a6cd709f0d63eeff01955f" }
+loop-protocol = { git = "https://github.com/soketlabs/loop.git", rev = "70301869ad108c4d03a6cd709f0d63eeff01955f" }
+loop-desk-term = { path = "loop-desk-term" }
+eframe = { version = "0.31", features = ["__screenshot"] }
+egui_extras = { version = "0.31", features = ["image"] }
+image = { version = "0.25", default-features = false, features = ["png"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync", "time", "fs", "process", "io-util"] }
+anyhow = "1"
+serde_json = "1"
+parking_lot = "0.12"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+pulldown-cmark = "0.12"
+similar = "2"
+chrono = { version = "0.4", default-features = false, features = ["clock", "std"] }
+egui = "0.31"
